@@ -1,15 +1,20 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { View} from 'react-native';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import reducers from './reducers';
 import {Header} from './components/commons/index';
 import LoginPage from './components/LoginPage';
 
-export default class App extends Component {
-  render() {
+const App = () => {
     return (
-      <View>
-        <Header headerText='Padhoto'/>
-        <LoginPage />
-      </View>
+      <Provider store={createStore(reducers)}>
+        <View>
+          <Header headerText='Padhoto'/>
+          <LoginPage />
+        </View>
+      </Provider>
     );
-  }
-}
+};
+
+export default App;
