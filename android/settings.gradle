@@ -1,0 +1,3 @@
+rootProject.name = 'Padhoto'
+
+include ':app'
