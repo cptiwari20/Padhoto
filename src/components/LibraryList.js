@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
-import { FlatList, ScrollView} from 'react-native';
+import { FlatList} from 'react-native';
 import ListItem from './ListItem';
 
 class LibraryList extends Component {
@@ -10,13 +10,11 @@ class LibraryList extends Component {
 
   render(){
     return (
-      <ScrollView>
          <FlatList
             data={this.props.library}
             renderItem={this.renderItem}
             keyExtractor={(library) => (library.id).toString() }
         />
-      </ScrollView>
     )
   }
 }
