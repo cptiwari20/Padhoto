@@ -3,4 +3,13 @@ export const selectLibrary = (id) => {
     type: 'SELECTED',
     payload: id
   }
+};
+
+
+// AUTH
+export const onEmailChange = (text) => {
+  return {
+    type: 'EMAIL_CHANGED',
+    payload: text
+  }
 }

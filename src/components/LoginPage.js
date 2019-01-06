@@ -1,11 +1,25 @@
 import React, { Component } from "react";
+import firebase from 'firebase';
 import { Card, CardSection, Input, Button } from "./commons/index";
+import { connect } from 'react-redux';
+import {onEmailChange} from './../actions';
+import {config} from '../firebaseConfig'
 
 class LoginPage extends Component {
-    state = {email: '', password: '', error: ''}
+    // state = { password: '', error: ''}
+
+    componentWillMount(){
+      firebase.initializeApp(config);
+    }
+
+  onEmailTextChange(text){
+    this.props.onEmailChange(text)
+  }
+
 
   render() {
-      const { email, password} = this.state;
+      const { password } = this.state;
+      const { email } = this.props.auth;
     return (
       <Card>
         <CardSection>
@@ -13,7 +27,7 @@ class LoginPage extends Component {
             label="Email" 
             placeholder="email@pmail.com" 
             value={email}
-            onChangeText={text => this.setState({ email: text })}
+            onChangeText={text => this.onEmailTextChange(text)}
             />
         </CardSection>
         <CardSection>
@@ -35,4 +49,8 @@ class LoginPage extends Component {
   }
 }
 
-export default LoginPage;
+function mapStateToProps({ auth }){
+  return { auth }
+}
+
+export default connect(mapStateToProps, { onEmailChange })(LoginPage);
