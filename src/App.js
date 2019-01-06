@@ -4,8 +4,8 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import reducers from './reducers';
 import {Header} from './components/commons/index';
-// import LoginPage from './components/LoginPage';
-import LibraryList from './components/LibraryList';
+import LoginPage from './components/LoginPage';
+// import LibraryList from './components/LibraryList';
 
 
 const App = () => {
@@ -13,7 +13,7 @@ const App = () => {
       <Provider store={createStore(reducers)}>
         <View>
           <Header headerText='Padhoto'/>
-          <LibraryList />
+          <LoginPage />
         </View>
       </Provider>
     );
