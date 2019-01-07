@@ -1,15 +1,14 @@
 import React, { Component } from "react";
-import firebase from 'firebase';
 import { Card, CardSection, Input, Button } from "./commons/index";
 import { connect } from 'react-redux';
 import {onEmailChange} from './../actions';
-import {config} from '../firebaseConfig'
+import { firebaseInitialize } from '../firebaseConfig'
 
 class LoginPage extends Component {
-    // state = { password: '', error: ''}
+    state = { password: '', error: ''}
 
     componentWillMount(){
-      firebase.initializeApp(config);
+      firebaseInitialize;
     }
 
   onEmailTextChange(text){
